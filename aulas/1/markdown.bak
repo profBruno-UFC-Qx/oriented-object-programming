@@ -1,11 +1,11 @@
 ---
-title: Aula 1
+title: Aula 1 - Apresentação da disciplina
 nav_order: 1
 has_children: true
 has_toc: false
 ---
 
-## Contruindo a sua primeira aplicação
+## Apresentação da disciplina
 
 Nesta aula iremos construir a sua primeira aplicação: "AndroDado". Durante a construção dessa aplicação
 iremos abordar os atividades básicas do plataforma Android, como mostrar texto e imagens.
