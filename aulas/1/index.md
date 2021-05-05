@@ -3,6 +3,7 @@ title: Aula 1 - Apresentação da disciplina
 nav_order: 1
 has_children: true
 has_toc: false
+youtubeId: v552Kpro-sk
 ---
 
 ## Apresentação da disciplina
@@ -14,6 +15,8 @@ Além disso, iremos apresentar o método de avaliação, os ambientes virtuais e
 <span class="fs-3">
 [Slides aqui]({{site.baseurl}}/assets/downloads/01-Apresentacao-da-disciplina.pdf){: .btn }
 </span>
+
+{% include youtubePlayer.html id=page.youtubeId %}
 
 <span class="fs-3 float-right">
 [Próxima aulas](../2/1-modularidade.html){: .btn }
