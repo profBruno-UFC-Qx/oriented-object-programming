@@ -19,5 +19,5 @@ Além disso, iremos apresentar o método de avaliação, os ambientes virtuais e
 {% include youtubePlayer.html id=page.youtubeId %}
 
 <span class="fs-3 float-right">
-[Próxima aulas](../2/1-modularidade.html){: .btn }
+[Próxima aulas](02-modularidade.html){: .btn }
 </span>
