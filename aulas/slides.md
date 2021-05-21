@@ -10,7 +10,7 @@ title: Notas de aula
         {% if site.baseurl.size == 0 %}
 - [Aula {{ file.basename | replace: "-", " " | replace_first: " ", " - "  }}]( {{ file.path }})
         {% else %}
-- [Aula {{ file.basename | replace: "-", " " | replace_first: " ", " - "  }}]( {{site.baseurl}}/{{ file.path }})
+- [Aula {{ file.basename | replace: "-", " " | replace_first: " ", " - "  }}]( {{site.baseurl}}{{ file.path }})
         {% endif %}
     {% endif %}
 {% endfor %}
