@@ -1,6 +1,7 @@
 ---
 title: Aula 2 - Modularidade
 nav_order: 1
+has_toc: false
 has_children: true
 youtubeId: IQlW4WgGzkU
 ---
