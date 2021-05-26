@@ -10,7 +10,7 @@ youtubeId: -yV7J0Hb1qc
 
 ### Recursos
 <span class="fs-3">
-[Slides aqui]({{site.baseurl}}/assets/downloads/03-conceitos-fundamentais-da-orientacao-a-objetos.pdf){: .btn }
+[Slides aqui]({{site.baseurl}}/assets/downloads/03-Conceitos-Fundamentais-de-OO.pdf){: .btn }
 </span>
 
 
