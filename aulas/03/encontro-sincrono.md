@@ -1,9 +1,7 @@
 ---
 title: Encontro Síncrono
 parent: Aula 3 - Conceitos Fundamentais da Orientação a Objetos
-nav_order: 1
-youtubeId1: AChFZK1tFOI
-youtubeId2: u9ccAsmBGdw
+youtubeId: cWhfNPgunLk
 ---
 
 ## Encontro de Síncrono
@@ -11,20 +9,17 @@ youtubeId2: u9ccAsmBGdw
 
 ### Recursos
 
+
 <span class="fs-3">
-[Calculadora com Memória em C](https://replit.com/@brunomateus5/CalculadoraComMemoria){: .btn }
-</span>
-<span class="fs-3">
-[Calculadora com Memória em Java](https://replit.com/@brunomateus5/CalculadoComMemoria){: .btn }
+[Pokemon e Conceitos de OO](https://replit.com/@brunomateus5/Pokemon-Conceitos-OO){: .btn }
 </span>
 
 ### Turma de Engenharia de Software
-
-{% include youtubePlayer.html id=page.youtubeId1 %}
+<iframe src="https://drive.google.com/file/d/14YtucYFeprAfhD4mhinfB3mx5X7Zxket/preview" width="700" height="480"></iframe>
 
 ### Turma de Redes
 
-{% include youtubePlayer.html id=page.youtubeId2 %}
+{% include youtubePlayer.html id=page.youtubeId %}
 
 <span class="fs-3 float-right">
 [Próxima aulas](03-conceitos-fundamentais-da-oo.html){: .btn }
