@@ -1,7 +1,7 @@
 ---
 title: 02. O funcionamento do Java
 parent: Aula 4 - Introdução ao Java
-nav_order: 1
+nav_order: 2
 has_children: false
 has_toc: false
 youtubeId: v_ZCtgwbS3o
@@ -20,5 +20,5 @@ Ele também fala em como construir interfaces gráficas.
 
 
 <span class="fs-3 float-right">
-[Próxima aulas](03-funcionamento-do-java){: .btn }
+[Próxima aulas](03-principios-basicos){: .btn }
 </span>
