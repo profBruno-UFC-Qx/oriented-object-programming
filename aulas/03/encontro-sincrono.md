@@ -22,5 +22,5 @@ youtubeId: cWhfNPgunLk
 {% include youtubePlayer.html id=page.youtubeId %}
 
 <span class="fs-3 float-right">
-[Próxima aulas](03-conceitos-fundamentais-da-oo.html){: .btn }
+[Próxima aulas](../04/){: .btn }
 </span>
