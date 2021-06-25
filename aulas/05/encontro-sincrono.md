@@ -24,5 +24,5 @@ youtubeId2: Fc9hH1h81jA
 {% include youtubePlayer.html id=page.youtubeId2 %}
 
 <span class="fs-3 float-right">
-[Próxima aulas](../05){: .btn }
+[Próxima aulas](../06){: .btn }
 </span>
