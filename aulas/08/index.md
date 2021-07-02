@@ -1,21 +1,21 @@
 ---
-title: Aula 7 - Classes Abstratas
-nav_order: 7
+title: Aula 8 - Interfaces
+nav_order: 8
 has_children: true
 has_toc: false
-youtubeId: c4-nMx6irUU
+youtubeId: PA2J-p1wuho
 ---
 
 ## Introdução
 
 ### Recursos
 <span class="fs-3">
-[Slides aqui]({{site.baseurl}}/assets/downloads/07-Classes-Abstratas.pdf){: .btn }
+[Slides aqui]({{site.baseurl}}/assets/downloads/08-Interfaces.pdf){: .btn }
 </span>
 
 {% include youtubePlayer.html id=page.youtubeId %}
 
 <span class="fs-3 float-right">
-[Próxima aulas](01-heranca){: .btn }
+[Próxima aulas](01-interfaces){: .btn }
 </span>
 
