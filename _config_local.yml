@@ -21,7 +21,7 @@
 title: Programação orientada a objetos
 email: brunomateus@ufc.br
 description: >- # this means to ignore newlines until "baseurl:"
-  Site destinado aos alunos da discplina QXD-007 Programação Orientada a Objetos
+  Site destinado aos alunos da discplina QXD-0007 Programação Orientada a Objetos
   móveis da Universidade Federal do Ceará - Campus de Quixadá.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com

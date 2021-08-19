@@ -15,3 +15,12 @@
   }
 }
 
+th, td {
+    border-left: $border rgba($border-color, 0.5);
+}
+
+thead {
+    th {
+        border-bottom: $border rgba($border-color, 0.5);
+    }
+}
