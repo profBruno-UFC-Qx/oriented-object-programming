@@ -15,23 +15,31 @@ Na lista de atividades práticas, nós temos várias atividades. No entanto, voc
 
 Confiram a lista de atividades a seguir:
 
-| Nome | Repositório | Peso | Extra | Link para envio | Qtd Enviados |
-| ---- | ----------- | ---- | ----- | --------------- | ------------ |
-| Carro Ecológico        | [Repositório](https://github.com/profBruno-UFC-Qx/qxd0007-carro-ecologico)     | 1 | Não | [Enviar](https://forms.gle/ai8SAJoCLqKS9uya9){: .btn }| <span id="pp1"></span> |
-| Conta Bancária Simples | [Repositório](https://github.com/profBruno-UFC-Qx/conta-bancaria-simples)      | 1 | Não | [Enviar](https://forms.gle/yADAXnYegPeYquzV6) | <span id="pp2"></span> |
-| Cofre	                 | [Repositório](https://github.com/profBruno-UFC-Qx/qxd007-cofre)                | 1 | Não | [Enviar](https://forms.gle/J99Y6cUHamTYU17y7) | <span id="pp3"></span> |
-| Lapiseira e Grafite    | [Repositório](https://github.com/profBruno-UFC-Qx/qxd0007-lapiseira-e-grafite) | 1 | Não | [Enviar](https://forms.gle/GeRf7CwafH7PaiGE7) | <span id="pp4"></span> |
-| Motoca	             | [Repositório](https://github.com/profBruno-UFC-Qx/qxd0007-motoca)              | 1 | Não | [Enviar](https://forms.gle/kAHZonXVL4CfKwpA6) | <span id="pp5"></span> |
-| Tamagochi	             | [Repositório](https://github.com/profBruno-UFC-Qx/qxd0007-tamagotchi)          | 2 | Não | [Enviar](https://forms.gle/tQae7smoV4BSHHyC6) | <span id="pp6"></span> |
-| Mestre dos vetores     | | 2 | Não | | <span id="pp7"></span> |
-| Pula pula no parquinho | [Repositório](https://github.com/profBruno-UFC-Qx/qxd0007-pula-pula)           | 2 |	Não | [Enviar](https://forms.gle/ti6HxcPJHWc3Lwsa7) | <span id="pp7"></span> |
-| Topic de Luxo	         | [Repositório](https://github.com/profBruno-UFC-Qx/qxd0007-topic-de-luxo)	      | 2 | Não | [Enviar](https://forms.gle/xTkFeehZ2ocTctPu9) | <span id="pp8"></span> |
-| Gestão Universitária	 | [Repositório](https://github.com/profBruno-UFC-Qx/qxd0007-gestao-universitaria)| 3 | Não | [Enviar](https://forms.gle/uPcBitSE7xm6Y4qn9) | <span id="pp9"></span> |
-| Sala de Cinema         | | 3 | Não | | <span id="pp10"></span> |
-| Agenda	             | [Repositório](https://github.com/profBruno-UFC-Qx/qxd0007-agenda)              | 3 | Não | [Enviar](https://forms.gle/htZteRiwG86eA8Tf9) | <span id="pp11"></span> |
-| Círculos	             | [Repositório](https://github.com/profBruno-UFC-Qx/qxd0007-circulos)            | 4 | Não | [Enviar](https://forms.gle/1UfbAWfnT8aF46Kv8) | <span id="pp12"></span> |
-| Junk food              | | 4 | Não | | <span id="pp13"></span> |
-
+<table>
+ <thead>
+    <tr>
+        <th> Nome </th>
+        <th> Repositório </th>
+        <th> Peso </th>
+        <th> Extra </th>
+        <th> Link para envio </th>
+        <th> Qtd Enviados </th>
+    </tr>
+ </thead>
+ <tbody>
+{% assign atividades = site.atividades | sort: "numero" %}
+{% for atividade in atividades %}
+    <tr>
+        <td> {{ atividade.nome }} </td>
+        <td> <a href="{{ atividade.repo }}">Repositório</a> </td>
+        <td>{{ atividade.peso }} </td>
+        <td> {{ atividade.extra }} </td>
+        <td> <a href="{{ atividade.link}}" class="btn">Enviar</a></td>
+        <td> <span id="pp{{ atividade.numero }}"></span> </td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
 
 ### Passo a passo para iniciar uma atividade prática
 
