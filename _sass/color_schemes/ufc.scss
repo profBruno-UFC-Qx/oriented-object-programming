@@ -1,6 +1,6 @@
-$baby-powder: #FDFFFC;
-$midnight-blue: #000B52;
-$coquelicot: #FC440F;
+$baby-powder: #FFFFFF;
+$midnight-blue: #441f76;
+$coquelicot: #AB92CA;
 
 
 $body-background-color: $baby-powder;
@@ -12,7 +12,7 @@ $body-heading-color: $grey-dk-200;
 $nav-child-link-color: $grey-dk-000;
 $search-result-preview-color: $grey-dk-000;
 
-$link-color: $coquelicot;
+$link-color: #369338;;
 $btn-primary-color: $blue-200;
 $base-button-color: $grey-lt-000 !default;
 
@@ -20,3 +20,15 @@ $code-background-color: $grey-dk-250;
 $search-background-color: $grey-dk-250;
 $table-background-color: $baby-powder;
 $feedback-color: darken($sidebar-color, 3%);
+
+.nav-list-item  a {
+    color: $coquelicot;
+}
+
+.nav-list .nav-list-item a.nav-list-expander {
+    color: $coquelicot;
+}
+
+code {
+    color: $coquelicot;
+}
