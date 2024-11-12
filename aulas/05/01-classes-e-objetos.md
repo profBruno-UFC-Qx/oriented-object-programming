@@ -11,6 +11,9 @@ youtubeId: 7UrQ9xSdj8U
 
 {% include youtubePlayer.html id=page.youtubeId %}
 
+### Exercício proposto
+
+[Implementando a classe Treinador](../../praticas/pp01)
 
 <span class="fs-3 float-right">
 [Próxima aulas](02-atributos-de-classe){: .btn }

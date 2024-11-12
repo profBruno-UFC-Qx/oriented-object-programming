@@ -24,3 +24,7 @@ thead {
         border-bottom: $border rgba($border-color, 0.5);
     }
 }
+
+pre.mermaid .label {
+    text-transform: none
+}
