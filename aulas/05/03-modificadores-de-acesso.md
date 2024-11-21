@@ -11,6 +11,9 @@ youtubeId: 0qNeGqG-cgI
 
 {% include youtubePlayer.html id=page.youtubeId %}
 
+### Exercício proposto
+
+[Encapsulamento com as classes Mapa e Jogo](../../praticas/pp02)
 
 <span class="fs-3 float-right">
 [Próxima aulas](encontro-sincrono){: .btn }

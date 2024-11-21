@@ -66,3 +66,5 @@ defaults:
 collections:
   atividades:
     output: false
+  praticas:
+    output: true
