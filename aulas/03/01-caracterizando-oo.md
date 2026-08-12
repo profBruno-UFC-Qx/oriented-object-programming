@@ -5,12 +5,8 @@ nav_order: 1
 has_children: false
 has_toc: false
 youtubeId: o5QtxV1CGQQ
+next: 02-abstracao
 ---
-
-## Caracterizando o paradigma da orientação a objetos
 
 {% include youtubePlayer.html id=page.youtubeId %}
 
-<span class="fs-3 float-right">
-[Próxima aulas](02-abstracao){: .btn }
-</span>

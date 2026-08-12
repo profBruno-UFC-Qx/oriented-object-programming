@@ -5,13 +5,7 @@ nav_order: 5
 has_children: false
 has_toc: false
 youtubeId: ORj9oNyayZc
+next: ../11
 ---
 
-## Lançando Exceção
-
 {% include youtubePlayer.html id=page.youtubeId %}
-
-
-<span class="fs-3 float-right">
-[Próxima aulas](encontro-sincrono){: .btn }
-</span>

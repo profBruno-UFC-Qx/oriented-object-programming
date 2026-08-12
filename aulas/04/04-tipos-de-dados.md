@@ -5,13 +5,7 @@ nav_order: 4
 has_children: false
 has_toc: false
 youtubeId: WPyCGoQvXSY
+next: 05-declarando-variaveis
 ---
 
-## Tipos de dados
-
 {% include youtubePlayer.html id=page.youtubeId %}
-
-
-<span class="fs-3 float-right">
-[Próxima aulas](05-declarando-variaveis){: .btn }
-</span>

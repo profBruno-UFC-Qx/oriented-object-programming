@@ -5,16 +5,11 @@ nav_order: 1
 has_children: false
 has_toc: false
 youtubeId: 7UrQ9xSdj8U
+next: 02-atributos-de-classe
 ---
-
-## O Classes, Obejtos, Atributos e Métodos
 
 {% include youtubePlayer.html id=page.youtubeId %}
 
 ### Exercício proposto
 
 [Implementando a classe Treinador](../../praticas/pp01)
-
-<span class="fs-3 float-right">
-[Próxima aulas](02-atributos-de-classe){: .btn }
-</span>

@@ -5,13 +5,7 @@ nav_order: 4
 has_children: false
 has_toc: false
 youtubeId: 6Rrg926kkJE
+next: 05-interface-segregation
 ---
 
-## O princípio da substituição de Liskov
-
 {% include youtubePlayer.html id=page.youtubeId %}
-
-
-<span class="fs-3 float-right">
-[Próxima aulas](05-interface-segregation){: .btn }
-</span>

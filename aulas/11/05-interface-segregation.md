@@ -5,13 +5,7 @@ nav_order: 5
 has_children: false
 has_toc: false
 youtubeId: s30iQ6R4HnE
+next: 06-dependency-inversion
 ---
 
-## O princípio da segregação de interfaces
-
 {% include youtubePlayer.html id=page.youtubeId %}
-
-
-<span class="fs-3 float-right">
-[Próxima aulas](06-dependecy-inversion){: .btn }
-</span>

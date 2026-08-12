@@ -5,13 +5,7 @@ nav_order: 2
 has_children: false
 has_toc: false
 youtubeId: zdiLgM3RfIg
+next: 03-tratando-excecoes
 ---
 
-## Error e Exceptions
-
 {% include youtubePlayer.html id=page.youtubeId %}
-
-
-<span class="fs-3 float-right">
-[Próxima aulas](03-tratando-excecoes){: .btn }
-</span>

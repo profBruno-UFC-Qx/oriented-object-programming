@@ -5,9 +5,8 @@ nav_order: 2
 has_children: false
 has_toc: false
 youtubeId: v_ZCtgwbS3o
+next: 03-principios-basicos
 ---
-
-## O funcionamento do Java
 
 {% include youtubePlayer.html id=page.youtubeId %}
 
@@ -16,9 +15,3 @@ youtubeId: v_ZCtgwbS3o
 
 São vários vídeos básicos, acredito que não sejam necessários para quem tem uma base boa de fundamentos de programação, mas fiquem a vontade para conferir.
 Ele também fala em como construir interfaces gráficas.
-
-
-
-<span class="fs-3 float-right">
-[Próxima aulas](03-principios-basicos){: .btn }
-</span>

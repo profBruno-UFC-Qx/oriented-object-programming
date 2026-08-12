@@ -7,11 +7,4 @@ has_toc: false
 youtubeId: 848IacwgLRE
 ---
 
-## O princípio da inversão de dependências
-
 {% include youtubePlayer.html id=page.youtubeId %}
-
-
-<span class="fs-3 float-right">
-[Próxima aulas](encontro-sincrono){: .btn }
-</span>

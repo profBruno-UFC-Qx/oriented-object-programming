@@ -2,8 +2,7 @@
 title: Notas de aula
 ---
 
-## Notas de aula
-
+## {{page.title}}
 
 {% for file in site.static_files %}
     {% if file.extname == '.pdf'%}
