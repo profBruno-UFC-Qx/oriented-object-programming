@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Práticas em sala
 nav_order: 12
 ---

@@ -1,4 +1,5 @@
 ---
+layout: default
 title: Atividades práticas
 youtubeId1: x7oWQXAB4fo
 jsarr:
@@ -6,6 +7,10 @@ jsarr:
 ---
 
 ### Atividades Práticas
+
+Antes de iniciar o desenvolvimento de qualquer atividade prática, será necessário informar o seu usuário do Github. Para isso preencha o formulário abaixo:
+
+<a class="btn" href="https://forms.gle/rH2YyPyTgnr3ua4K8" target="_blank">Formulário de cadastrado de usuário do Github</a>
 
 O repositório de cada atividade é criado individualmente para você pelo professor — você não precisa (nem deve) usar o botão "Use this template" do GitHub. Quando o seu repositório estiver pronto, você vai receber um convite de colaborador no GitHub; aceite o convite antes de começar.
 
