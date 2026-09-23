@@ -14,7 +14,8 @@ Antes de iniciar o desenvolvimento de qualquer atividade prática, será necess�
 
 O repositório de cada atividade é criado individualmente para você pelo professor — você não precisa (nem deve) usar o botão "Use this template" do GitHub. Quando o seu repositório estiver pronto, você vai receber um convite de colaborador no GitHub; aceite o convite antes de começar.
 
-O link na tabela abaixo aponta para o repositório-modelo, só para consulta dos requisitos, do diagrama e do exemplo de execução — não é o seu repositório de entrega.
+{: .warning }
+> O link na tabela abaixo aponta para o repositório-modelo, só para consulta dos requisitos, do diagrama e do exemplo de execução — **não é o seu repositório de entrega**.
 
 Ao terminar a atividade:
 1. Preencha o arquivo `RELATO.md` na raiz do seu repositório (substitui o formulário do Google que era usado antes).
