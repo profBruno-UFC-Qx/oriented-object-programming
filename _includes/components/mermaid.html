@@ -1,0 +1,206 @@
+{%- comment -%}
+Sobrescreve o _includes/components/mermaid.html do just-the-docs (0.12.0).
+
+Diferenças em relação ao original:
+- aguarda o mermaid terminar de desenhar (o tema não faz `await mermaid.run`);
+- tira o SVG de dentro do <pre><code> e o coloca em um contêiner próprio;
+- adiciona zoom/arraste com svg-pan-zoom, botões (+, −, restaurar, tela cheia)
+  e zoom com Ctrl/⌘ + rolagem (ou gesto de pinça no trackpad).
+
+ATENÇÃO: o tema compacta o HTML em uma única linha. No script abaixo use apenas
+comentários /* ... */ — um comentário // anularia todo o código seguinte.
+
+Supõe mermaid >= 10 (ver `mermaid.version` no _config.yml).
+{%- endcomment -%}
+<script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+<script type="module">
+  {% if site.mermaid.path -%}
+  import mermaid from '{{ site.mermaid.path | relative_url }}';
+  {%- else -%}
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@{{ site.mermaid.version }}/dist/mermaid.esm.min.mjs';
+  {%- endif %}
+
+  const config = {% include mermaid_config.js %};
+  mermaid.initialize({ ...config, startOnLoad: false });
+
+  const MAX_HEIGHT_VH = 0.7; /* altura máxima do diagrama fora da tela cheia */
+  const MIN_HEIGHT = 120;
+
+  /* 1. Troca cada <pre><code class="language-mermaid"> por um contêiner próprio. */
+  const figures = [...document.querySelectorAll('code.language-mermaid')].map((code) => {
+    const figure = document.createElement('div');
+    figure.className = 'mermaid-figure';
+    const source = document.createElement('div');
+    source.className = 'mermaid-source';
+    source.textContent = code.textContent;
+    figure.append(source);
+    (code.closest('pre') ?? code).replaceWith(figure);
+    return figure;
+  });
+
+  /* 2. Desenha e, só depois, adiciona o zoom. */
+  if (figures.length > 0) {
+    await mermaid.run({ nodes: figures.map((f) => f.firstChild), suppressErrors: true });
+    figures.forEach(enhance);
+  }
+
+  function enhance(figure) {
+    const svg = figure.querySelector('svg');
+    const viewBox = svg?.viewBox?.baseVal;
+    if (!svg || !viewBox?.width || !viewBox?.height || !window.svgPanZoom) return;
+
+    const naturalWidth = viewBox.width;
+    const naturalHeight = viewBox.height;
+    svg.removeAttribute('width');
+    svg.removeAttribute('height');
+    svg.style.maxWidth = 'none';
+
+    /* "Expandido" = tela cheia (Fullscreen API) ou, onde ela não existe (iPhone), */
+    /* uma sobreposição fixa ocupando a janela inteira. */
+    const isExpanded = () => figure.classList.contains('is-expanded');
+
+    /* Tamanho do SVG em pixels. Na página: nunca maior que o tamanho natural */
+    /* (evita ampliar diagramas pequenos) e limitado a uma fração da altura da */
+    /* janela. Expandido: toda a área livre do contêiner. */
+    const applySize = () => {
+      if (isExpanded()) {
+        const style = getComputedStyle(figure);
+        const width = figure.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+        const height = figure.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom)
+          - toolbar.offsetHeight - parseFloat(getComputedStyle(toolbar).marginTop);
+        svg.style.width = `${Math.max(0, width)}px`;
+        svg.style.height = `${Math.max(MIN_HEIGHT, height)}px`;
+        return;
+      }
+      const width = Math.min(naturalWidth, figure.clientWidth);
+      const height = Math.min(naturalHeight * (width / naturalWidth), window.innerHeight * MAX_HEIGHT_VH);
+      svg.style.width = `${width}px`;
+      svg.style.height = `${Math.max(MIN_HEIGHT, height)}px`;
+    };
+
+    /* Barra de ferramentas (criada antes do primeiro applySize, que mede sua altura). */
+    const toolbar = document.createElement('div');
+    toolbar.className = 'mermaid-toolbar';
+    figure.append(toolbar);
+    applySize();
+
+    let fittedZoom = 1;
+    let panZoom = null;
+    panZoom = svgPanZoom(svg, {
+      zoomEnabled: true,
+      panEnabled: true,
+      mouseWheelZoomEnabled: false, /* a rolagem continua rolando a página */
+      dblClickZoomEnabled: true,
+      preventMouseEventsDefault: false, /* não bloqueia a rolagem por toque */
+      controlIconsEnabled: false,
+      fit: true,
+      center: true,
+      minZoom: 0.5,
+      maxZoom: 20,
+      zoomScaleSensitivity: 0.3,
+      onZoom: () => panZoom && figure.classList.toggle('is-zoomed', panZoom.getSizes().realZoom > fittedZoom * 1.01),
+    });
+
+    const reset = () => {
+      applySize();
+      panZoom.resize();
+      panZoom.updateBBox();
+      panZoom.fit();
+      panZoom.center();
+      fittedZoom = panZoom.getSizes().realZoom;
+      figure.classList.remove('is-zoomed');
+    };
+    reset();
+
+    /* Ctrl/⌘ + rolagem (ou pinça no trackpad) amplia no ponto do cursor. */
+    /* Expandido, a rolagem sozinha já amplia. */
+    figure.addEventListener('wheel', (event) => {
+      if (!(event.ctrlKey || event.metaKey || isExpanded())) return;
+      event.preventDefault();
+      const rect = svg.getBoundingClientRect();
+      panZoom.zoomAtPointBy(event.deltaY < 0 ? 1.15 : 1 / 1.15, {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
+      });
+    }, { passive: false });
+
+    const hint = document.createElement('span');
+    hint.className = 'mermaid-hint';
+    toolbar.append(hint);
+
+    const addButton = (label, title, onClick) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'btn';
+      button.textContent = label;
+      button.title = title;
+      button.setAttribute('aria-label', title);
+      button.addEventListener('click', onClick);
+      toolbar.append(button);
+      return button;
+    };
+    addButton('+', 'Aproximar', () => panZoom.zoomIn());
+    addButton('−', 'Afastar', () => panZoom.zoomOut());
+    addButton('⟲', 'Restaurar', reset);
+    const expandButton = addButton('⛶', 'Tela cheia', () => setExpanded(!isExpanded()));
+
+    const useFullscreenApi = typeof figure.requestFullscreen === 'function';
+
+    const updateExpandedUi = () => {
+      const expanded = isExpanded();
+      expandButton.textContent = expanded ? '✕' : '⛶';
+      expandButton.title = expanded ? 'Sair da tela cheia (Esc)' : 'Tela cheia';
+      expandButton.setAttribute('aria-label', expandButton.title);
+      hint.textContent = expanded
+        ? 'Arraste para mover · Rolagem ou duplo clique para ampliar · Esc para sair'
+        : 'Arraste para mover · Ctrl/⌘ + rolagem ou duplo clique para ampliar';
+      document.documentElement.classList.toggle('mermaid-expanded-open', expanded && !useFullscreenApi);
+    };
+    updateExpandedUi();
+
+    /* Muda a classe e reenquadra; o ResizeObserver reenquadra de novo quando a */
+    /* área terminar de crescer (no macOS a entrada em tela cheia é animada). */
+    const applyExpanded = (expanded) => {
+      figure.classList.toggle('is-expanded', expanded);
+      updateExpandedUi();
+      reset();
+    };
+
+    const setExpanded = (expanded) => {
+      if (!useFullscreenApi) {
+        applyExpanded(expanded);
+        return;
+      }
+      if (expanded) {
+        figure.requestFullscreen().catch(() => applyExpanded(true));
+      } else if (document.fullscreenElement === figure) {
+        document.exitFullscreen();
+      } else {
+        applyExpanded(false);
+      }
+    };
+
+    document.addEventListener('fullscreenchange', () => {
+      const fullscreen = document.fullscreenElement === figure;
+      if (fullscreen !== isExpanded()) applyExpanded(fullscreen);
+    });
+
+    /* Esc fecha a sobreposição (na tela cheia real o próprio navegador cuida disso). */
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && isExpanded() && document.fullscreenElement !== figure) applyExpanded(false);
+    });
+
+    /* Reenquadra quando o tamanho muda. Na página, só a largura conta (no celular, */
+    /* rolar altera a altura da janela e não deve desfazer o zoom do aluno). */
+    let lastWidth = figure.clientWidth;
+    let lastHeight = figure.clientHeight;
+    new ResizeObserver(() => {
+      const width = figure.clientWidth;
+      const height = figure.clientHeight;
+      const changed = isExpanded() ? (width !== lastWidth || height !== lastHeight) : width !== lastWidth;
+      lastWidth = width;
+      lastHeight = height;
+      if (changed) reset();
+    }).observe(figure);
+  }
+</script>

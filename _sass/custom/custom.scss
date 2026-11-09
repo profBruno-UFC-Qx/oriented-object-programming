@@ -25,6 +25,76 @@ thead {
     }
 }
 
-pre.mermaid .label {
-    text-transform: none
+// Diagramas mermaid com zoom (ver _includes/components/mermaid.html)
+.mermaid-figure {
+  margin: $sp-4 0;
+  padding: $sp-2;
+  border: $border $border-color;
+  border-radius: $border-radius;
+  background-color: #fff;
+
+  svg {
+    display: block;
+    margin: 0 auto;
+    cursor: grab;
+    user-select: none;
+    touch-action: pan-y; // deixa rolar a página por toque sobre o diagrama
+  }
+
+  svg:active {
+    cursor: grabbing;
+  }
+
+  &.is-zoomed svg {
+    touch-action: none; // ampliado: o toque arrasta o diagrama
+  }
+
+  // o tema deixa .label em maiúsculas; o mermaid usa essa classe nos textos
+  .label {
+    text-transform: none;
+  }
+
+  // tela cheia (Fullscreen API) ou sobreposição na janela inteira (iPhone);
+  // o tamanho do SVG é calculado em pixels pelo script
+  &.is-expanded {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: $sp-3;
+    border: 0;
+    border-radius: 0;
+    overflow: hidden;
+
+    svg {
+      margin: 0;
+    }
+  }
+}
+
+// trava a rolagem da página enquanto a sobreposição está aberta
+html.mermaid-expanded-open,
+html.mermaid-expanded-open body {
+  overflow: hidden;
+}
+
+.mermaid-toolbar {
+  display: flex;
+  gap: $sp-1;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: $sp-2;
+
+  .mermaid-hint {
+    margin-right: auto;
+    color: $grey-dk-000;
+    @include fs-2;
+  }
+
+  .btn {
+    min-width: 2.25rem;
+    padding: $sp-1 $sp-2;
+  }
 }
