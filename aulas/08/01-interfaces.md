@@ -1,6 +1,6 @@
 ---
 title: 01. Interfaces
-parent: Aula 8 - Interfaces
+parent: Aula 8 - Interfaces e Composição
 nav_order: 1
 has_children: false
 has_toc: false

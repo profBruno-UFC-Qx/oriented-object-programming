@@ -1,5 +1,5 @@
 ---
-title: Aula 8 - Interfaces
+title: Aula 8 - Interfaces e Composição
 nav_order: 8
 has_children: true
 has_toc: false
